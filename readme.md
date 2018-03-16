@@ -15,11 +15,14 @@ This project is a oneM2M research project, with InterDigital as the client. They
 
 ## Folders
 
+* abstract - Abstract for compiling into a booklet.
 * bash - Installation scripts.
 * icons - Pixel art for the LED matrix.
 * latex - Report source code.
 * om2m - Eclipse OM2M Sensivision plug-in.
 * openmtc - OpenMTC video streaming plug-in.
+* poster - A1 project poster
+* presentation - Project presentation
 * python - Python sensor scripts.
 * tests - Python unit and integration tests.
 * video - Video viewer, serve via apache.
