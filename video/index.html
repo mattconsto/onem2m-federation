@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>OM2M Video Streaming Test</title>
+	<style>
+		html, body {background: black; margin: 0; padding: 0; height: 100%; display: grid;}
+		#image {width: 100vmin; height: 100vmin; margin: auto; filter: blur(0.1vmin);}
+	</style>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</head>
+
+<body>
+	<img id="image" src="#" />
+	<script type="text/javascript">
+		var myDelay = 100;
+		var start = Date.now();
+		var thisDelay = 1000;
+
+		function startTimer() {
+			setTimeout(function() {
+				fetch();
+				
+				var actual = Date.now() - start;
+				thisDelay = myDelay - (actual - myDelay);
+				start = Date.now();
+				startTimer();
+			}, thisDelay);
+		}
+
+		function fetch() {
+			$.post({
+				url: 'fetch.php',
+				success: function (result) {
+						$("#image").attr("src", 'data:image/png;base64,' + result);
+				}
+			});
+		}
+
+		startTimer();
+	</script>
+</body>
+</html>

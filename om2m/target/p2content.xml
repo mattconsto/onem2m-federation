@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<units size='1'>
+  <unit id='org.eclipse.om2m.sensivision' version='1.1.0.20171205-1816' singleton='false'>
+    <update id='org.eclipse.om2m.sensivision' range='[0.0.0,1.1.0.20171205-1816)' severity='0'/>
+    <properties size='4'>
+      <property name='org.eclipse.equinox.p2.name' value='Sensivision'/>
+      <property name='maven-groupId' value='org.eclipse.om2m'/>
+      <property name='maven-artifactId' value='org.eclipse.om2m.sensivision'/>
+      <property name='maven-version' value='1.1.0-SNAPSHOT'/>
+    </properties>
+    <provides size='3'>
+      <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.om2m.sensivision' version='1.1.0.20171205-1816'/>
+      <provided namespace='osgi.bundle' name='org.eclipse.om2m.sensivision' version='1.1.0.20171205-1816'/>
+      <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+    </provides>
+    <requires size='12'>
+      <required namespace='osgi.bundle' name='org.eclipse.om2m.commons' range='0.0.0'/>
+      <required namespace='java.package' name='org.apache.commons.logging' range='0.0.0'/>
+      <required namespace='java.package' name='org.apache.http' range='4.3.3'/>
+      <required namespace='java.package' name='org.apache.http.client' range='4.3.6'/>
+      <required namespace='java.package' name='org.apache.http.client.methods' range='4.3.6'/>
+      <required namespace='java.package' name='org.apache.http.entity' range='4.3.3'/>
+      <required namespace='java.package' name='org.apache.http.impl.client' range='4.3.6'/>
+      <required namespace='java.package' name='org.apache.http.message' range='4.3.3'/>
+      <required namespace='java.package' name='org.eclipse.om2m.core.service' range='0.0.0'/>
+      <required namespace='java.package' name='org.eclipse.om2m.interworking.service' range='0.0.0'/>
+      <required namespace='java.package' name='org.osgi.framework' range='0.0.0'/>
+      <required namespace='java.package' name='org.osgi.util.tracker' range='0.0.0'/>
+    </requires>
+    <artifacts size='1'>
+      <artifact classifier='osgi.bundle' id='org.eclipse.om2m.sensivision' version='1.1.0.20171205-1816'/>
+    </artifacts>
+    <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+    <touchpointData size='1'>
+      <instructions size='1'>
+        <instruction key='manifest'>
+          Bundle-SymbolicName: org.eclipse.om2m.sensivision&#xA;Bundle-Version: 1.1.0.20171205-1816&#xA;
+        </instruction>
+      </instructions>
+    </touchpointData>
+  </unit>
+</units>

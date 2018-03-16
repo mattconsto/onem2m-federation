@@ -1,0 +1,17 @@
+\chapter{Conclusion}
+
+The aim of this project was to demonstrate the federation of different implementations of the oneM2M standard, specifically with InterDigital's proprietary platform, oneTRANSPORT. This was shown to be possible. Additionally, this project demonstrated the capabilities of the platform to support video streaming.
+
+The team developed and deployed plug-ins for two open source platforms, OM2M and OpenMTC. These were deployed on local Raspberry Pis connected to real-time sensors and cloud hosted web servers for storage. The Raspberry Pi set-up provided the client with a compact, portable and multi-functional device used for gateways.
+
+Video streaming over HTTP through oneM2M was proven to be feasible on the OpenMTC platform, which provided a stable 20 frames per second. However OM2M platform's heavy parsing only provided a maximum of 5 frames a second. Federation was completed on two fronts:
+
+\begin{itemize}
+\item \textbf{Between the two open source platforms OM2M and OpenMTC}. Resources and functions saved on the OpenMTC server were accessed by the OM2Ms IN server. Although bi-directional data exchange was not possible due to OpenMTC's unsupported resource type. 
+\item \textbf{Between OneTRANSPORT and OpenMTC}. The client's oneTRANSPORT platform could access the real-time sensor data hosted on the OpenMTC's IN server. However, mutual data communication could not be established as a result of oneTRANSPORT using a custom authentication header. A solution was suggested into how OpenMTC can support custom HTTP headers. 
+\end{itemize}
+
+By demonstrating federation between private and public services providers, this report proves the viability of using platforms implementing the oneM2M standard. If more and more companies adopt the standard throughout the coming years, interoperability of many of systems will create a large network of interconnected devices. They will be able to communicate together, enriching IoT data that will help change the world.
+% DAAAM what an ending 
+
+\clearpage

@@ -1,0 +1,55 @@
+\chapter{Introduction}
+
+%  I suggest you expand on the problem statement section 1.1, and on sections 1.2 and 1.3 and state explicitly that this is your project. As it is now, it is not clear you are talking about your project... and expand on these points (especially the research-oriented part...).
+
+At the start of the academic year, the team was tasked with investigating the oneM2M standard by the client, InterDigital. This introduction outlines the problem, the team's solution, and the projects scope.
+
+\section{Problem}
+
+For the mass deployment of IoT (Internet of Things) to be a success, a global standard for M2M (Machine to Machine) communication needs to become established, like how TCP/IP has become the standard for end to end network communication. Unfortunately, this has not yet been possible, as vendors typically isolate their platforms by locking in clients and their data. By isolating their platforms, vendors gain both control and flexibility as there is no public standard that their devices need obey. But, by restricting interoperability, vendors in turn restrict the functionality of their products. An interoperable device obeying a common standard grants the user and third-party developers data freedom and may even incentivise them to adopt the platform.
+
+To make this possible, eight of the leading SDO's (Standards Development Organizations) have worked together to create oneM2M \cite{oneM2M2017OneM2MChain}, an open standard for machine to machine communication between IoT devices. This specification allows vendors to build powerful, interoperable platforms for a wide range of applications. Applications include smart cities, connected cars, public safety, and so on. When respected, this standard allows vendors to federate data sources. This system in turn creates more value and allows for greater insight than would be possible with simply the sum of its parts.
+
+Open source organizations have since adopted the oneM2M standard into their public IoT platforms. Open source licensing grants third parties access and free licensing for source code and binaries, typically with few restrictions other than continuing to share derivations under the current license \cite{LernerTheBeyond}. Typically, open source software is built openly and collaboratively, allowing it to benefit from the knowledge of experts from around the world, and from many different domains. An open development process allows anyone, from anywhere to contribute throughout the development process.
+
+The client InterDigital has partnered with the oneM2M SDO to promote the standard and in turn build systems upon it. One such system, oneTRANSPORT, is a smart transport system \cite{InterDigital2016OneTRANSPORT:Today} developed using the oneM2M standard. Due to this design, interoperability with external service providers (SP) offering other oneM2M platforms should theoretically provide fully functional end-to-end data communications out of the box. This project will research and demonstrate the practical applications of federation, between a proprietary oneM2M platform, and an open source implementation using the team's chosen sensors.    
+
+\section{Solution}
+
+The team decided to identify the key primary goals, with additional secondary goals to be completed as extensions. This was to ensure that after finishing the project, that the team had produced a good system that met client expectations, with the possibility and expectation that many of the secondary goals would have also been completed.
+
+\subsection{Primary Goals}
+
+\begin{itemize}
+  \item Research oneM2M and choose an open source implementation for the project.
+  \item Download, install, and investigate how to write a custom plug-in for the oneM2M platform. This will be done on local team's laptops.
+  \item Write a plug-in for the oneM2M platform, testing to ensure that it works.
+  \item Identify potential hardware platforms, to investigate and evaluate their differing capabilities, choosing one for the project. 
+  \item Deploy the oneM2M platform and plug-in onto the hardware platform, adding additional sensing capabilities.
+  \item Connect the resulting system to the cloud.
+  \item Demonstrate federation between the system and oneTRANSPORT.
+  \item Exchange sensor and traffic data between the systems.
+  \item Create and submit a final report summarising this project, with replication steps, both to university and to the client.
+\end{itemize}
+
+\subsection{Secondary Goals}
+
+\begin{itemize}
+  \item Investigate data sources of greater bandwidth and software complexity, such as streaming images and potentially video. This is dependent on selecting a hardware platform of which a camera can be connected to, and with enough computing capabilities to do so.
+  \item Secure connections for maintaining confidentiality, integrity, and privacy of the device and data. Security is very important for IoT to be trusted and successful.
+  \item As the project progresses, additional secondary goals may be discovered and implemented, considering client feedback.
+  \item \sout{Create interactive visualisations to demonstrate the systems capabilities. This is likely to be in the form of a dashboard, presenting values on a single screen}.
+  \item \sout{Use authentication and access levels, to allow for differing access to different sensor capabilities}.
+\end{itemize}
+
+Not all of the secondary goals were completed, and have therefore been crossed out.
+
+\section{Scope}
+
+\begin{itemize}
+  \item This project will not focus on deploying devices into constrained environments, thus will assume that rich computing and communication capabilities are readily available. A cursory look at the oneM2M standard shows that it is capable of being deploying into such constrained environments. Thus, work done will likely be transferable to such an environment with a number of configurations.
+  \item Due to the primarily research focus of this project, this project will not heavily focus on performance, efficiency, nor scalability of any resulting systems. However, if the systems performance is unusable, the team will investigate, adapt, and verify solutions.
+  \item This project is less concerned with creating a final, consumer ready piece of software, and is more focused on investigating the structure, processes, and capabilities of the oneM2M standard. Later development could include refining the findings of this project, then bring them to market.
+\end{itemize}
+
+\clearpage

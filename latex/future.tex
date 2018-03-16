@@ -1,0 +1,61 @@
+\chapter{Future Work}
+
+As with any major research project, there is always more that can be done. It is rare that when researching one topic, no other relevant topics are found. This project was no exception, so in this section potential areas of future work will be discussed.
+
+
+\section{Federation Mechanisms}
+\label{sec:sub}
+
+This project only use the RemoteCSE resource type to establish a connection between INs in order to inter exchange data. Although this was a valid approach, oneM2M also specifies a subscriptions resource type that can be applied for data federation. Subscriptions allow a one way exchange of data between two servers. \lstinline{Server A} will register a subscription to \lstinline{Server B} on a specific resource such as new content instances (representing the data). When a content instance is created on \lstinline{Server B} in the specified resource, \lstinline{Server A} will receive a notification request containing the new data.
+
+While subscriptions would considerably reduce the network usage between the two servers (as \lstinline{server A} only send one HTTP request to \lstinline{Server B} for the initial subscription), it will require more custom AEs to be created with the task of listening for notifications and parsing them to the data store. The team will suggest investigating the use of subscriptions for federating data between INs and comparing them to RemoteCSEs. 
+
+\section{Increasing Complexity}
+
+The current system is relatively simple, consisting of a few Raspberry Pis, Sense HATs, Camera, Cloud Server, and oneTRANSPORT. Federation has been demonstrated, but only on a small scale.
+
+It would be interesting to investigate how the project handles increasing complexity due to a larger number of connected gateways, federation between more servers, and larger amounts of data. Typically, IoT platforms are designed to be deployed in constrained environments in their thousands.
+
+For example, it is suspected that the video streaming functionality is unlikely to handle significant scaling and would need to be adapted to cope.
+
+\section{Investigating protocols such as CoAP and MQTT}
+
+While this project only used HTTP, oneM2M is designed to work seamlessly across different protocols such as CoAP and MQTT. Each protocol has advantages and disadvantages, and picking one is simply the matter of balancing trade-offs.
+
+HTTP is a older protocol originally designed for transmitting documents over the internet, forming the basis of the World Wide Web. It enjoys widespread adoption, is easily understood, and massively interoperable. However, for a constrained device, the overhead of HTTP and Transmission Control Protocol (TCP) may be too great.
+
+CoAP, on the other-hand, is a lightweight protocol that allows a multitude of devices to communicate efficiently. An open standard, but with less support than HTTP. It is however designed to interoperate with the web, so the developer curve is lessened when compared with MQTT. It operates over the User Diagram Protocol (UDP), which is light weight when compared with TCP \cite{chen2014constrained}.
+
+MQTT is an even simpler protocol. It is open, incredibly flexible, and acts as a binary pipe. This gives developers incredible control, but in turn requires significantly more development time. Like CoAP, it operates over UDP.
+
+\section{Exploring New Environments}
+
+This project has taken place in an environment with rich computing capabilities. It would be interesting to explore how to adapt this work to new, constrained environments. These environments could include environments that are simply more separated, to going off the grid on new hardware platforms.
+
+For example, base stations away from civilisation, or drones used to collect real-time data on air pollution. The data collected would be very interesting.
+
+\section{Video Streaming}
+
+The current system for video streaming could use work, and there are two different approaches that could be taken.
+
+\subsection{oneM2M for Advertising and Control}
+
+While oneM2M is certainly capable of broadcasting video, this report proves that, it was not designed for such a task and there are other protocols out there that may be better suited for it. One option would be to use oneM2M to advertise, and control video broadcast over such protocols, instead of directly using oneM2M itself. This would combine the power of oneM2M with the efficiency of protocols designed for video streaming.
+
+There are many different video broadcasting protocols, including, but not limited to: Real-Time Streaming Protocol (RTSP), Dynamic Adaptive Streaming over HTTP (MPEG-DASH), Microsoft Smooth Streaming (MSS), HTTP Dynamic Streaming (HDS), and HTTP Live Streaming (HLS). If low latency is required, look into using RTSP. If widespread client support is required, look into using MPEG-DASH or HLS.
+
+However, as such a system bypasses most of oneM2M, federation would not supported out of the box, and would need to be re-engineered. Additionally, firewall and NAT issues would each need to be addressed in turn.
+
+\subsection{Motion JPEG}
+
+Currently, each client connects to the server and polls it for updates at a fixed interval. However, from testing it was found that this retrieval is not particularly quick and has formed a major bottleneck. Further improvements would require moving from the current system to creating a Motion JPEG proxy that connects and subscribes to the IN-CSE on the client’s behalf. 
+
+This would change from a polling model to a subscription model (Which would be rather difficult to do with just JavaScript) and ultimately only have a single proxy connecting to oneM2M instead of each client. This would reduce system load, decrease latency, and generally improve the streaming experience all around. This is possible as a motion JPEG stream is quite literally a sequence of concatenated JPEG stills served via a connection that isn't closed by the server. And best of all, MJPEG is widely supported by all major browsers with a performant poly-fill available for Internet Explorer. 
+
+\section{Dashboard Visualisation Integration with Grafana}
+
+Originally, the team intended to create a dashboard to visualise the project using HTML5 technologies. However, after communicating with the client, it was decided that this would essentially be a waste of time. They had their own solution using a Graphite database and Grafana for visualisation. So therefore, the feature was scrapped in favour of focusing on more important aspects of the project.
+
+As future work, this Graphite and Grafana system could be investigated and duplicated to gather a fuller understanding of how the entire system works. This could then be used to combine data from different implementations of the oneM2M standard (such as oneTRANSPORT) and visualise them in an intuitive manner, thereby creating a fully-fledged application.
+
+\clearpage

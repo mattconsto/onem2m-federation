@@ -1,0 +1,209 @@
+\documentclass{ecsgdp}
+
+\usepackage[utf8]{inputenc}
+\inputencoding{utf8}
+
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[math]{iwona}
+\usepackage{csquotes}
+\usepackage[sorting=none]{biblatex}
+\usepackage{tabularx}
+\usepackage{parskip}
+\usepackage{graphicx}
+\usepackage{chngpage}
+\usepackage{float}
+\usepackage{multirow}
+\usepackage{subcaption}
+\usepackage{pdfpages}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{lmodern}  % for bold teletype font
+\usepackage{amsmath}  % for \hookrightarrow
+\usepackage{xcolor}   % for \textcolor
+\usepackage[normalem]{ulem}
+\usepackage{calc}
+\usepackage{verbatimbox}
+\usepackage{dirtree}
+\usepackage{afterpage}
+
+\newcommand\blankpage{%
+    \null
+    \thispagestyle{empty}%
+    \addtocounter{page}{-1}%
+    \newpage}
+
+\graphicspath{{images/}}
+\addbibresource{mendeley.bib}
+\addbibresource{manual.bib}
+
+\lstset{
+  basicstyle=\ttfamily,
+  columns=fullflexible,
+  frame=single,
+  breaklines=true,
+  postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
+}
+
+% Improve formatting
+\makeatletter
+\renewcommand\tableofcontents{\@starttoc{toc}}
+\makeatother
+\makeatletter
+\renewcommand\listoffigures{\@starttoc{lof}}
+\makeatother
+\makeatletter
+\renewcommand\listoftables{\@starttoc{lot}}
+\makeatother
+\makeatletter
+\renewcommand*\l@figure{\@dottedtocline{1}{0em}{2.3em}}% Default: 1.5em/2.3em
+\let\l@table\l@figure
+\makeatother
+
+\makeatletter
+\renewcommand*{\ext@figure}{lot}
+\let\c@figure\c@table
+\let\ftype@figure\ftype@table
+\let\listoftableandfigures\listoftables
+\makeatother
+
+\title{OneM2M Federation:\\ Multi-Vendor Internet-of-Things}
+\date{2018}
+\author{Adib Dezfouli, Altay Adademir, Dennis Parchkov, Edmond Ipindamitan, Matthew Consterdine.}
+
+\def\wl{\par \vspace{\baselineskip}}
+
+\begin{document}
+  \begin{titlepage}
+    \hspace{0pt}
+    \vfill
+    \pagenumbering{gobble}
+    \centering
+    
+    \Huge University of Southampton
+    \Huge Electronics and Computer Science
+
+    \hfill\wl
+
+    \huge \textbf{oneM2M Federation:\\Multi-Vendor Internet of Things}
+
+    \hfill\wl
+
+    \large Adib Pournazari
+
+    \large Altay Adademir
+
+    \large Dennis Parchkov
+
+    \large Edmond Ipindamitan
+
+    \large Matthew Consterdine
+
+    \hfill\wl
+
+    \LARGE Supervisor: Mohammed El-Hajjar\\
+    \LARGE Second Examiner: Mike Wald
+
+    \hfill\wl
+
+    \LARGE 2018
+    
+    \vfill
+    \hspace{0pt}
+  \end{titlepage}
+  
+  \afterpage{\blankpage}
+  \clearpage
+  
+  \pagenumbering{Roman}
+
+  \chapter*{Abstract}
+  \label{sec:abstract}
+  \addcontentsline{toc}{chapter}{\nameref{sec:abstract}}
+
+  For the mass deployment of the Internet of Things to be a success, a global standard for machine to machine communication needs to become established. In this report, the open oneM2M standard for Machine to Machine communication will be explored. This report will research its capabilities, how to make use of the standard, and ultimately build systems with IoT sensors upon it. Using these systems data streaming, live video and federation will be investigated.
+
+   This project is research orientated, investigating federation with InterDigital as the client. They created the oneTRANSPORT data marketplace using the oneM2M standard that exposes proprietary data to users, analysts and developers.
+
+  \clearpage
+  
+  \chapter*{Contents}
+  \label{sec:contents}
+  \addcontentsline{toc}{chapter}{\nameref{sec:contents}}
+  \tableofcontents
+  \clearpage
+  
+  \chapter*{List of Acronyms}
+  \label{sec:acronyms}
+  \addcontentsline{toc}{chapter}{\nameref{sec:acronyms}}
+
+  \begin{table}[H]
+  \label{acronyms-table}
+  \begin{tabularx}{\textwidth}{|l|X|}
+    \hline
+    \textbf{Acronym} & \textbf{Definition} \\
+    \hline
+
+    ADN & Application Dedicated Node \\
+    AE & Application Entity \\
+    API & Application Programming Interface \\
+    ASN & Application Server Node \\
+    CA & Certificate Authority \\
+    CoAP & Constrained Application Protocol \\
+    CSE & Common Services Entity \\
+    GPIO & General Purpose Input / Output \\
+    HAT & Hardware Attached on Top \\
+    HTTP(S) & Hyper Text Transfer Protocol (Secure) \\
+    IN & Infrastructure Node (Server) \\
+    IP & Internet Protocol \\
+    IPE & Interworking Proxy Entity \\
+    JSON & JavaScript Object Notation \\
+    ICMP & Internet Control Message Protocol\\
+    IoT & Internet of Things \\
+    M2M & Machine To Machine \\
+    MN & Middle Node (Gateway) \\
+    MQTT & MQ Telemetry Transport \\
+    NAT & Network Address Translation \\
+    NSE & Network Services Entity \\
+    PoA & Point of Access \\
+    REST & REpresentational State Transfer \\
+    SDO & Standards Development Organisations \\
+    SP & Service Provider \\
+    TCP & Transmission Control Protocol \\
+    TLS & Transport Layer Security \\
+    VPN & Virtual Private Network \\
+    XML & eXtensible Mark-up Language \\
+
+    \hline
+  \end{tabularx}
+  \end{table}
+
+  \clearpage
+  
+  \chapter*{List of Figures and Tables}
+  \label{sec:list-of-figures-and-tables}
+  \addcontentsline{toc}{chapter}{\nameref{sec:list-of-figures-and-tables}}
+  \listoftableandfigures
+  \clearpage
+
+  \pagenumbering{arabic}
+  \setcounter{page}{1}
+  \include{intro}
+  \include{research}
+  \include{planning}
+  \include{design}
+  \include{implementation}
+  \include{testing}
+  \include{evaluation}
+  \include{future}
+  \include{conclusion}
+
+  \setcounter{secnumdepth}{-1}
+  \chapter*{References}
+  \label{sec:references}
+  \addcontentsline{toc}{chapter}{\nameref{sec:references}}
+  \printbibliography[heading=none]
+  \clearpage
+
+  \include{appendices}
+\end{document}

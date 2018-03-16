@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-SymbolicName: org.eclipse.om2m.sensivision
+Bundle-Name: Sensivision
+Bundle-Version: 1.1.0.20171205-1816
+Require-Bundle: org.eclipse.om2m.commons
+Bundle-ManifestVersion: 2
+Bundle-Activator: org.eclipse.om2m.sensivision.Activator
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy
+Import-Package: org.apache.commons.logging,org.apache.http;version="4.
+ 3.3",org.apache.http.client;version="4.3.6",org.apache.http.client.me
+ thods;version="4.3.6",org.apache.http.entity;version="4.3.3",org.apac
+ he.http.impl.client;version="4.3.6",org.apache.http.message;version="
+ 4.3.3",org.eclipse.om2m.core.service,org.eclipse.om2m.interworking.se
+ rvice,org.osgi.framework,org.osgi.util.tracker
+
