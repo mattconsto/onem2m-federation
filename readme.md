@@ -11,7 +11,7 @@ This project is a oneM2M research project, with InterDigital as the client. They
 
 ## Photo
 
-![](/latex/images/okpicture.jpg)
+[![](/latex/images/okpicture.jpg)](https://consto.uk/2018/03/16/onem2m-federation-multi-vendor-internet-of-things)
 
 ## Folders
 
